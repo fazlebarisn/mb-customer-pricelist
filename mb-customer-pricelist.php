@@ -46,29 +46,12 @@ add_action( 'admin_enqueue_scripts', 'mbcustomer_pricelist_all_assets' );
 /**
  * Add menu page for this plugin
  */
-// function mb_customer_pricelist_sync_menu_pages(){
-//     //add_menu_page('Mb Customer Sync', 'Customer Pricelist Sync', 'manage_options', 'mb-customer-pricelist-sync', 'customer_pricelist_sync_page');
-
-//     add_submenu_page( 'mb-all-sync', 'Customer Pricelist Sync', 'Customer Pricelist Sync', 'manage_options', 'mb-customer-pricelist-sync', 'customer_pricelist_sync_page' );
-// }
-// add_action( 'admin_menu', 'mb_customer_pricelist_sync_menu_pages' );
-
-/**
- * Add submnu in wordpress product menu
- */
 function mb_customer_pricelist_sync_menu_pages(){
+    //add_menu_page('Mb Customer Sync', 'Customer Pricelist Sync', 'manage_options', 'mb-customer-pricelist-sync', 'customer_pricelist_sync_page');
 
-    //add sub menu in product menu for sync product categories
-    add_submenu_page(
-        'mb_syncs',
-        'Customer Pricelist Sync',
-        'Customer Pricelist Sync',
-        'manage_options',
-        'mb-customer-pricelist-sync',
-        'customer_pricelist_sync_page'
-    );
+    add_submenu_page( 'mb_syncs', 'Customer Pricelist Sync', 'Customer Pricelist Sync', 'manage_options', 'mb-customer-pricelist-sync', 'customer_pricelist_sync_page' );
 }
-add_action('admin_menu', 'mb_customer_pricelist_sync_menu_pages', 999);
+add_action( 'admin_menu', 'mb_customer_pricelist_sync_menu_pages' );
 
 /**
  * Main function for product sync
