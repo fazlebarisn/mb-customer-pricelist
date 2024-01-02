@@ -46,12 +46,12 @@ add_action( 'admin_enqueue_scripts', 'mbcustomer_pricelist_all_assets' );
 /**
  * Add menu page for this plugin
  */
-function mb_customer_pricelist_sync_menu_pages(){
+function mb_pricelist_customer_pricelist_sync_menu_pages(){
     //add_menu_page('Mb Customer Sync', 'Customer Pricelist Sync', 'manage_options', 'mb-customer-pricelist-sync', 'customer_pricelist_sync_page');
 
     add_submenu_page( 'mb_syncs', 'Customer Pricelist Sync', 'Customer Pricelist Sync', 'manage_options', 'mb-customer-pricelist-sync', 'customer_pricelist_sync_page' );
 }
-add_action( 'admin_menu', 'mb_customer_pricelist_sync_menu_pages' );
+add_action( 'admin_menu', 'mb_pricelist_customer_pricelist_sync_menu_pages',999 );
 
 /**
  * Main function for product sync
@@ -204,11 +204,11 @@ register_deactivation_hook(__FILE__, 'woo_customer_pricelist_syncronization_apis
 
 // This happend when icpricp caron job is runnning
 
-function mb_run_cron_for_ezposcustomer_table(){
+function mb_pricelist_run_cron_for_ezposcustomer_table(){
 
     $start = microtime(true);
 
-    mb_customer_pricelist_sync(1);
+    mb_pricelist_customer_pricelist_sync(1);
 
     $total = microtime(true) - $start;
 
@@ -218,5 +218,5 @@ function mb_run_cron_for_ezposcustomer_table(){
     
 }
 
-add_action('mb_ezposcustomer_add_with_cron', 'mb_run_cron_for_ezposcustomer_table');
+add_action('mb_ezposcustomer_add_with_cron', 'mb_pricelist_run_cron_for_ezposcustomer_table');
 

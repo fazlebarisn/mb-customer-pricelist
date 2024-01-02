@@ -4,7 +4,7 @@
  * Delete woocommerce product by id
  */
 
-function mb_customer_pricelist_sync($page = 1) {
+function mb_pricelist_customer_pricelist_sync($page = 1) {
 
     $all_customer_pricelist = fetch_all_customer_pricelist_form_ezposcustomer_table($page);
 
@@ -69,7 +69,7 @@ function mb_customer_pricelist_sync($page = 1) {
 
     if (count($all_customer_pricelist)) {
 
-            mb_customer_pricelist_sync($page);
+            mb_pricelist_customer_pricelist_sync($page);
 
         }
 }
